@@ -2,7 +2,7 @@
 {
     public class TennisGame
     {
-        private TennisPlayer _player1;
+        private readonly TennisPlayer _player1;
 
         public TennisGame()
         {
