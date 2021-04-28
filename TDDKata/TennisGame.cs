@@ -13,6 +13,10 @@
 
         public string Score()
         {
+            if (_player1.Score == 2)
+            {
+                return "Thirty Love";
+            }
             if (_player1.Score == 1 && _player2.Score == 1)
             {
                 return "Fifteen All";
