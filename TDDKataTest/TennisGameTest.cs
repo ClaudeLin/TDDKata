@@ -47,5 +47,18 @@ namespace TDDKataTest
             
             Assert.AreEqual(expected,actual);
         }
+
+        [Test]
+        public void Thirty_Love()
+        {
+            expected = "Thirty Love";
+            
+            _tennisGame.FirstPlayerGetScore();
+            _tennisGame.FirstPlayerGetScore();
+            actual = _tennisGame.Score();
+            
+            Assert.AreEqual(expected,actual);
+
+        }
     }
 }
