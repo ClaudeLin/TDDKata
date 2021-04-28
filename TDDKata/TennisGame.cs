@@ -22,5 +22,9 @@
         {
             _player1.GetScore();
         }
+
+        public void SecondPlayerGetScore()
+        {
+        }
     }
 }
