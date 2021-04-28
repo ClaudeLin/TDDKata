@@ -9,7 +9,6 @@
 
         public void FirstPlayerGetScore()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
