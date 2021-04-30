@@ -15,12 +15,17 @@
             {
                 return "Fifteen Love";
             }
+
             return "Love All";
         }
 
         public void Player1GetScore()
         {
             _player1.Point++;
+        }
+
+        public void ReceiverGetScore()
+        {
         }
     }
 }
