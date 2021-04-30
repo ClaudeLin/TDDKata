@@ -1,33 +1,37 @@
-﻿namespace TDDKata
+﻿using System.Collections.Generic;
+
+namespace TDDKata
 {
     public class TennisGame
     {
-        private readonly Player _player1;
+        private readonly Player _service;
         private readonly Player _receiver;
+
+        private readonly Dictionary<int, string> _scoreMapping = new()
+        {
+            {0, "Love"},
+            {1, "Fifteen"}
+        };
 
         public TennisGame()
         {
             _receiver = new Player();
-            _player1 = new Player();
+            _service = new Player();
         }
 
         public string GetScore()
         {
-            if (_player1.Point == 1 && _receiver.Point == 1)
+            if (_service.Point == 1 && _service.Point != _receiver.Point)
             {
-                return "Fifteen All";
-            }
-            if (_player1.Point == 1)
-            {
-                return "Fifteen Love";
+                return _scoreMapping[_service.Point] + " " + _scoreMapping[_receiver.Point];
             }
 
-            return "Love All";
+            return _scoreMapping[_service.Point] + " All";
         }
 
-        public void Player1GetScore()
+        public void ServiceGetScore()
         {
-            _player1.Point++;
+            _service.Point++;
         }
 
         public void ReceiverGetScore()

@@ -30,7 +30,7 @@ namespace TDDKataTest
         {
             expected = "Fifteen Love";
 
-            _tennisGame.Player1GetScore();
+            _tennisGame.ServiceGetScore();
             actual = _tennisGame.GetScore();
             Assert.AreEqual(expected,actual);
         }
@@ -40,7 +40,7 @@ namespace TDDKataTest
         {
             expected = "Fifteen All";
             
-            _tennisGame.Player1GetScore();
+            _tennisGame.ServiceGetScore();
             _tennisGame.ReceiverGetScore();
             actual = _tennisGame.GetScore();
             Assert.AreEqual(expected,actual);
