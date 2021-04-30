@@ -6,8 +6,8 @@ namespace TDDKataTest
     public class TennisGameTest
     {
         private TennisGame _tennisGame;
-        private string _actual;
-        private string _expected;
+        private string actual;
+        private string expected;
 
         [SetUp]
         public void SetUp()
@@ -18,11 +18,21 @@ namespace TDDKataTest
         [Test]
         public void Love_All()
         {
-            _expected = "Love All";
+            expected = "Love All";
 
-            _actual = _tennisGame.GetScore();
+            actual = _tennisGame.GetScore();
 
-            Assert.AreEqual(_expected, _actual);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Fifteen_Love()
+        {
+            expected = "Fifteen Love";
+
+            _tennisGame.Player1GetScore();
+            actual = _tennisGame.GetScore();
+            Assert.AreEqual(expected,actual);
         }
     }
 }

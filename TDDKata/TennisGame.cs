@@ -6,5 +6,10 @@
         {
             return "Love All";
         }
+
+        public void Player1GetScore()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
