@@ -10,7 +10,8 @@ namespace TDDKata
         private readonly Dictionary<int, string> _scoreMapping = new()
         {
             {0, "Love"},
-            {1, "Fifteen"}
+            {1, "Fifteen"},
+            {2, "Thirty"}
         };
 
         public TennisGame()
@@ -22,6 +23,11 @@ namespace TDDKata
         public string GetScore()
         {
             if (_service.Point == 1 && _service.Point != _receiver.Point)
+            {
+                return _scoreMapping[_service.Point] + " " + _scoreMapping[_receiver.Point];
+            }
+
+            if (_service.Point == 2 && _service.Point != _receiver.Point)
             {
                 return _scoreMapping[_service.Point] + " " + _scoreMapping[_receiver.Point];
             }
