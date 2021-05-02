@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TDDKata
 {
@@ -9,9 +10,7 @@ namespace TDDKata
 
         private readonly Dictionary<int, string> _scoreStringMapping = new()
         {
-            {
-                0, "Love"
-            },
+            {0, "Love"},
             {1, "Fifteen"},
             {2, "Thirty"},
             {3, "Forty"}
@@ -19,15 +18,24 @@ namespace TDDKata
 
         public string GetCurrentScore()
         {
-            if (_servicePlayerPoint < 4 && _servicePlayerPoint != _receiverPlayerPoint)
+            if (PointOverFortyRange() && _servicePlayerPoint != _receiverPlayerPoint)
             {
                 return _scoreStringMapping[_servicePlayerPoint] + " " + _scoreStringMapping[_receiverPlayerPoint];
             }
 
-            if (_servicePlayerPoint == 4 && _receiverPlayerPoint == 3)
+            if (Math.Abs(_servicePlayerPoint - _receiverPlayerPoint) == 1)
             {
-                return "Service Player Adv.";
+                if (_servicePlayerPoint > _receiverPlayerPoint)
+                {
+                    return "Service Player Adv.";
+                }
+
+                if (_servicePlayerPoint < _receiverPlayerPoint)
+                {
+                    return "Receiver Player Adv.";
+                }
             }
+
 
             if (_servicePlayerPoint == 3)
             {
@@ -35,6 +43,11 @@ namespace TDDKata
             }
 
             return _scoreStringMapping[_servicePlayerPoint] + " All";
+        }
+
+        private bool PointOverFortyRange()
+        {
+            return _servicePlayerPoint < 4 && _receiverPlayerPoint < 4;
         }
 
         public void ServicePlayerGetPoint(int point = 1)
