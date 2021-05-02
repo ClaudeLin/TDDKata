@@ -10,12 +10,13 @@ namespace TDDKata
         private readonly Dictionary<int, string> _scoreStringMapping = new()
         {
             {0, "Love"},
-            {1, "Fifteen"}
+            {1, "Fifteen"},
+            {2, "Thirty"}
         };
 
         public string GetCurrentScore()
         {
-            if ( _servicePlayerPoint != _receiverPlayerPoint)
+            if (_servicePlayerPoint != _receiverPlayerPoint)
             {
                 return _scoreStringMapping[_servicePlayerPoint] + " " + _scoreStringMapping[_receiverPlayerPoint];
             }
