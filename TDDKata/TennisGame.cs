@@ -17,9 +17,14 @@ namespace TDDKata
 
         public string GetCurrentScore()
         {
-            if (_servicePlayerPoint != _receiverPlayerPoint)
+            if (_servicePlayerPoint < 4 && _servicePlayerPoint != _receiverPlayerPoint)
             {
                 return _scoreStringMapping[_servicePlayerPoint] + " " + _scoreStringMapping[_receiverPlayerPoint];
+            }
+
+            if (_servicePlayerPoint == 4 && _receiverPlayerPoint == 3)
+            {
+                return "Service Player Adv.";
             }
 
             if (_servicePlayerPoint == 3)
