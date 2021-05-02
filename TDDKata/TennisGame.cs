@@ -9,7 +9,9 @@ namespace TDDKata
 
         private readonly Dictionary<int, string> _scoreStringMapping = new()
         {
-            {0, "Love"},
+            {
+                0, "Love"
+            },
             {1, "Fifteen"},
             {2, "Thirty"},
             {3, "Forty"}

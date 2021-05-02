@@ -95,7 +95,7 @@ namespace TDDKataTest
         public void ReceiverPlayer_Adv_Then_BackToDeuce_Finally_ServicePlayer_Adv()
         {
             expected = "Service Player Adv.";
-            tennisGame.ServicePlayerGetPoint();
+            tennisGame.ServicePlayerGetPoint(3);
             tennisGame.ReceiverPlayerGetPoint(4);
             tennisGame.ServicePlayerGetPoint(4);
             actual = tennisGame.GetCurrentScore();
