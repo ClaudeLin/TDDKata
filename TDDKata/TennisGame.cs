@@ -24,14 +24,14 @@ namespace TDDKata
             return _scoreStringMapping[_servicePlayerPoint] + " All";
         }
 
-        public void ServicePlayerGetPoint()
+        public void ServicePlayerGetPoint(int point = 1)
         {
-            _servicePlayerPoint++;
+            _servicePlayerPoint += point;
         }
 
-        public void ReceiverPlayerGetPoint()
+        public void ReceiverPlayerGetPoint(int point = 1)
         {
-            _receiverPlayerPoint++;
+            _receiverPlayerPoint += point;
         }
     }
 }

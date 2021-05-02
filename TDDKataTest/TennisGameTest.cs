@@ -20,7 +20,7 @@ namespace TDDKataTest
         {
             expected = "Love All";
             actual = tennisGame.GetCurrentScore();
-            Assert.AreEqual(expected,actual);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace TDDKataTest
             expected = "Fifteen Love";
             tennisGame.ServicePlayerGetPoint();
             actual = tennisGame.GetCurrentScore();
-            Assert.AreEqual(expected,actual);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
@@ -39,18 +39,16 @@ namespace TDDKataTest
             tennisGame.ServicePlayerGetPoint();
             tennisGame.ReceiverPlayerGetPoint();
             actual = tennisGame.GetCurrentScore();
-            Assert.AreEqual(expected,actual);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void Thirty_Love()
         {
             expected = "Thirty Love";
-            tennisGame.ServicePlayerGetPoint();
-            tennisGame.ServicePlayerGetPoint();
+            tennisGame.ServicePlayerGetPoint(2);
             actual = tennisGame.GetCurrentScore();
-            Assert.AreEqual(expected,actual);
+            Assert.AreEqual(expected, actual);
         }
-        
     }
 }
