@@ -3,9 +3,14 @@
     public class TennisGame
     {
         private int _servicePlayerPoint;
+        private int _receiverPlayerPoint;
 
         public string GetCurrentScore()
         {
+            if (_servicePlayerPoint==1 && _servicePlayerPoint == _receiverPlayerPoint)
+            {
+                return "Fifteen All";
+            }
             if (_servicePlayerPoint == 1)
             {
                 return "Fifteen Love";
@@ -20,7 +25,7 @@
 
         public void ReceiverPlayerGetPoint()
         {
-            
+            _receiverPlayerPoint++;
         }
     }
 }
