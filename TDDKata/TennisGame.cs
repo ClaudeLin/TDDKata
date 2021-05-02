@@ -6,5 +6,10 @@
         {
             return "Love All";
         }
+
+        public void ServicePlayerGetPoint()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

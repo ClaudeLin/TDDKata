@@ -5,22 +5,31 @@ namespace TDDKataTest
 {
     public class TennisGameTest
     {
-        private string _expected;
-        private TennisGame _tennisGame;
-        private string _actual;
+        private string expected;
+        private TennisGame tennisGame;
+        private string actual;
 
         [SetUp]
         public void SetUp()
         {
-            _tennisGame = new TennisGame();
+            tennisGame = new TennisGame();
         }
 
         [Test]
         public void Love_All()
         {
-            _expected = "Love All";
-            _actual = _tennisGame.GetCurrentScore();
-            Assert.AreEqual(_expected,_actual);
+            expected = "Love All";
+            actual = tennisGame.GetCurrentScore();
+            Assert.AreEqual(expected,actual);
+        }
+
+        [Test]
+        public void Fifteen_Love()
+        {
+            expected = "Fifteen Love";
+            tennisGame.ServicePlayerGetPoint();
+            actual = tennisGame.GetCurrentScore();
+            Assert.AreEqual(expected,actual);
         }
         
     }
