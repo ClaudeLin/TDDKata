@@ -79,5 +79,16 @@ namespace TDDKataTest
             actual = tennisGame.GetCurrentScore();
             Assert.AreEqual(expected,actual);
         }
+
+        [Test]
+        public void ServicePlayer_Adv()
+        {
+            expected = "Service Player Adv.";
+            tennisGame.ServicePlayerGetPoint(3);
+            tennisGame.ReceiverPlayerGetPoint(3);
+            tennisGame.ServicePlayerGetPoint();
+            actual = tennisGame.GetCurrentScore();
+            Assert.AreEqual(expected,actual);
+        }
     }
 }
