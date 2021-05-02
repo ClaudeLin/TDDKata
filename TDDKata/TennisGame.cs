@@ -17,5 +17,10 @@
         {
             _servicePlayerPoint++;
         }
+
+        public void ReceiverPlayerGetPoint()
+        {
+            
+        }
     }
 }
