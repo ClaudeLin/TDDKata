@@ -50,5 +50,14 @@ namespace TDDKataTest
             actual = tennisGame.GetCurrentScore();
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void Forty_Love()
+        {
+            expected = "Forty Love";
+            tennisGame.ServicePlayerGetPoint(3);
+            actual = tennisGame.GetCurrentScore();
+            Assert.AreEqual(expected,actual);
+        }
     }
 }
