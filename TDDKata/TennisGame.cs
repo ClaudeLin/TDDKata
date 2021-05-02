@@ -22,6 +22,11 @@ namespace TDDKata
                 return _scoreStringMapping[_servicePlayerPoint] + " " + _scoreStringMapping[_receiverPlayerPoint];
             }
 
+            if (_servicePlayerPoint == 3)
+            {
+                return "Deuce";
+            }
+
             return _scoreStringMapping[_servicePlayerPoint] + " All";
         }
 
