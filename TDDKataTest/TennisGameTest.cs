@@ -20,6 +20,14 @@ namespace TDDKataTest
             CurrentScoreShouldBe("Love All");
         }
 
+        [Test]
+        public void Fifteen_Love()
+        {
+            _tennisGame.ServiceGetScore();
+            _actual = _tennisGame.CurrentScore();
+            CurrentScoreShouldBe("Fifteen Love");
+        }
+
         private void CurrentScoreShouldBe(string expected)
         {
             Assert.AreEqual(expected, _actual);
