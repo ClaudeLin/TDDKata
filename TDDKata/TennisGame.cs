@@ -16,15 +16,11 @@ namespace TDDKata
 
         public string CurrentScore()
         {
-            if (_serviceScore>0)
+            if (_serviceScore>0 || _receiverScore>0)
             {
-                return _scoreStringMapping[_serviceScore] + " Love";
+                return _scoreStringMapping[_serviceScore] + " "+_scoreStringMapping[_receiverScore];
             }
 
-            if (_receiverScore > 0)
-            {
-                return "Love " + _scoreStringMapping[_receiverScore];
-            }
             return "Love All";
         }
 
