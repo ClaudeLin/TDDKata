@@ -11,7 +11,7 @@ namespace TDDKataTest
         [SetUp]
         public void SetUp()
         {
-            _tennisGame = new TennisGame("Service");
+            _tennisGame = new TennisGame("Service", "Receiver");
         }
 
         [Test]
@@ -60,6 +60,7 @@ namespace TDDKataTest
             _actual = _tennisGame.CurrentScore();
             CurrentScoreShouldBe("Love Thirty");
         }
+
         [Test]
         public void Love_Forty()
         {
@@ -76,6 +77,7 @@ namespace TDDKataTest
             _actual = _tennisGame.CurrentScore();
             CurrentScoreShouldBe("Fifteen All");
         }
+
         [Test]
         public void Thirty_All()
         {
@@ -84,12 +86,11 @@ namespace TDDKataTest
             _actual = _tennisGame.CurrentScore();
             CurrentScoreShouldBe("Thirty All");
         }
-        
+
         [Test]
         public void Deuce()
         {
-            GivenServiceScore(3);
-            GivenReceiverScore(3);
+            GivenDeuce();
             _actual = _tennisGame.CurrentScore();
             CurrentScoreShouldBe("Deuce");
         }
@@ -97,13 +98,26 @@ namespace TDDKataTest
         [Test]
         public void ServicePlayerAdv()
         {
-            GivenServiceScore(3);
-            GivenReceiverScore(3);
+            GivenDeuce();
             GivenServiceScore(1);
             _actual = _tennisGame.CurrentScore();
             CurrentScoreShouldBe("Service Adv");
         }
 
+        [Test]
+        public void ReceiverPlayerAdv()
+        {
+            GivenDeuce();
+            GivenReceiverScore(1);
+            _actual = _tennisGame.CurrentScore();
+            CurrentScoreShouldBe("Receiver Adv");
+        }
+
+        private void GivenDeuce()
+        {
+            GivenServiceScore(3);
+            GivenReceiverScore(3);
+        }
 
 
         private void GivenReceiverScore(int times)

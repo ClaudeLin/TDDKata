@@ -17,10 +17,12 @@ namespace TDDKata
         };
 
         private readonly string _servicePlayerName;
+        private readonly string _receiverPlayerName;
 
-        public TennisGame(string servicePlayerName)
+        public TennisGame(string servicePlayerName, string receiverPlayerName)
         {
             _servicePlayerName = servicePlayerName;
+            _receiverPlayerName = receiverPlayerName;
         }
 
 
@@ -28,11 +30,11 @@ namespace TDDKata
         {
             if (IsScoreDifferent())
             {
-                if (_serviceScore >= 3)
+                if (IsNearGamePoint())
                 {
-                    if (_serviceScore - _receiverScore == 1)
+                    if (Math.Abs(_serviceScore - _receiverScore) == 1)
                     {
-                        return _servicePlayerName + " Adv";
+                        return AdvPlayer() + " Adv";
                     }
                 }
 
@@ -40,6 +42,16 @@ namespace TDDKata
             }
 
             return IsDeuce() ? Deuce() : SameScore();
+        }
+
+        private bool IsNearGamePoint()
+        {
+            return _serviceScore >= 3;
+        }
+
+        private string AdvPlayer()
+        {
+            return _serviceScore > _receiverScore ? _servicePlayerName : _receiverPlayerName;
         }
 
         private bool IsScoreDifferent()
