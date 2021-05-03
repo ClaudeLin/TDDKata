@@ -45,6 +45,15 @@ namespace TDDKataTest
             CurrentScoreShouldBe("Love Fifteen");
         }
 
+        [Test]
+        public void Love_Thirty()
+        {
+            _tennisGame.ReceiverGetScore();
+            _tennisGame.ReceiverGetScore();
+            _actual = _tennisGame.CurrentScore();
+            CurrentScoreShouldBe("Love Thirty");
+        }
+
         private void GivenServiceScore(int times)
         {
             for (var i = 0; i < times; i++)
