@@ -5,12 +5,14 @@ namespace TDDKata
     public class TennisGame
     {
         private int _serviceScore;
-        private readonly Dictionary<int,string> _scoreStringMapping=new Dictionary<int, string>()
+        private int _receiverScore;
+        private readonly Dictionary<int,string> _scoreStringMapping=new()
         {
             {0,"Love"},
             {1,"Fifteen"},
             {2,"Thirty"}
         };
+
 
         public string CurrentScore()
         {
@@ -18,12 +20,22 @@ namespace TDDKata
             {
                 return _scoreStringMapping[_serviceScore] + " Love";
             }
+
+            if (_receiverScore > 0)
+            {
+                return "Love " + _scoreStringMapping[_receiverScore];
+            }
             return "Love All";
         }
 
         public void ServiceGetScore()
         {
             _serviceScore++;
+        }
+
+        public void ReceiverGetScore()
+        {
+            _receiverScore++;
         }
     }
 }
