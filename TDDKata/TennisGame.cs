@@ -16,29 +16,45 @@ namespace TDDKata
             {3, "Forty"}
         };
 
+        private readonly string _servicePlayerName;
+
+        public TennisGame(string servicePlayerName)
+        {
+            _servicePlayerName = servicePlayerName;
+        }
+
 
         public string CurrentScore()
         {
-            if (_serviceScore != _receiverScore)
+            if (IsScoreDifferent())
             {
-                if (_serviceScore >=3  )
+                if (_serviceScore >= 3)
                 {
-                    if ((_serviceScore - _receiverScore) == 1)
+                    if (_serviceScore - _receiverScore == 1)
                     {
-                        return "Service Adv";
+                        return _servicePlayerName + " Adv";
                     }
                 }
-                if (_serviceScore > 0 || _receiverScore > 0)
-                {
-                    return _scoreStringMapping[_serviceScore] + " " + _scoreStringMapping[_receiverScore];
-                }
+
+                return _scoreStringMapping[_serviceScore] + " " + _scoreStringMapping[_receiverScore];
             }
 
-            if (_serviceScore >= 3)
-            {
-                return "Deuce";
-            }
-            return SameScore();
+            return IsDeuce() ? Deuce() : SameScore();
+        }
+
+        private bool IsScoreDifferent()
+        {
+            return _serviceScore != _receiverScore;
+        }
+
+        private string Deuce()
+        {
+            return "Deuce";
+        }
+
+        private bool IsDeuce()
+        {
+            return _serviceScore >= 3;
         }
 
         private string SameScore()

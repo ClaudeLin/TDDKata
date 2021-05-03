@@ -11,7 +11,7 @@ namespace TDDKataTest
         [SetUp]
         public void SetUp()
         {
-            _tennisGame = new TennisGame();
+            _tennisGame = new TennisGame("Service");
         }
 
         [Test]
