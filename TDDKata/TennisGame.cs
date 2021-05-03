@@ -28,22 +28,32 @@ namespace TDDKata
 
         public string CurrentScore()
         {
-            if (IsScoreDifferent())
+            if (IsNearGamePoint())
             {
-                if (IsNearGamePoint())
-                {
-                    if (Math.Abs(_serviceScore - _receiverScore) == 1)
-                    {
-                        return AdvPlayer() + " Adv";
-                    }
-
-                    return AdvPlayer() + " Win";
-                }
-
-                return _scoreStringMapping[_serviceScore] + " " + _scoreStringMapping[_receiverScore];
+                return HandleGamePoint();
             }
 
+            return IsScoreDifferent() ? NormalCase() : SameScoreCase();
+        }
+
+        private string SameScoreCase()
+        {
             return IsDeuce() ? Deuce() : SameScore();
+        }
+
+        private string NormalCase()
+        {
+            return _scoreStringMapping[_serviceScore] + " " + _scoreStringMapping[_receiverScore];
+        }
+
+        private string HandleGamePoint()
+        {
+            return IsAdv() ? AdvPlayer() + " Adv" : AdvPlayer() + " Win";
+        }
+
+        private bool IsAdv()
+        {
+            return Math.Abs(_serviceScore - _receiverScore) == 1;
         }
 
         private bool IsNearGamePoint()
