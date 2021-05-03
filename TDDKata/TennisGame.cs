@@ -28,12 +28,12 @@ namespace TDDKata
 
         public string CurrentScore()
         {
-            if (IsNearGamePoint())
+            if (IsScoreDifferent())
             {
-                return HandleGamePoint();
+                return IsNearGamePoint() ? HandleGamePoint() : NormalCase();
             }
 
-            return IsScoreDifferent() ? NormalCase() : SameScoreCase();
+            return SameScoreCase();
         }
 
         private string SameScoreCase()
