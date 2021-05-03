@@ -36,6 +36,8 @@ namespace TDDKata
                     {
                         return AdvPlayer() + " Adv";
                     }
+
+                    return AdvPlayer() + " Win";
                 }
 
                 return _scoreStringMapping[_serviceScore] + " " + _scoreStringMapping[_receiverScore];
@@ -46,7 +48,7 @@ namespace TDDKata
 
         private bool IsNearGamePoint()
         {
-            return _serviceScore >= 3;
+            return _serviceScore > 3 || _receiverScore > 3;
         }
 
         private string AdvPlayer()
