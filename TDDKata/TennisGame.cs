@@ -10,6 +10,11 @@
             {
                 return "Fifteen Love";
             }
+
+            if (_serviceScore == 2)
+            {
+                return "Thirty Love";
+            }
             return "Love All";
         }
 
