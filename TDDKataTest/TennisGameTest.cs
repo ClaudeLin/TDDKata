@@ -76,6 +76,24 @@ namespace TDDKataTest
             _actual = _tennisGame.CurrentScore();
             CurrentScoreShouldBe("Fifteen All");
         }
+        [Test]
+        public void Thirty_All()
+        {
+            GivenServiceScore(2);
+            GivenReceiverScore(2);
+            _actual = _tennisGame.CurrentScore();
+            CurrentScoreShouldBe("Thirty All");
+        }
+        
+        [Test]
+        public void Deuce()
+        {
+            GivenServiceScore(3);
+            GivenReceiverScore(3);
+            _actual = _tennisGame.CurrentScore();
+            CurrentScoreShouldBe("Deuce");
+        }
+
 
 
         private void GivenReceiverScore(int times)

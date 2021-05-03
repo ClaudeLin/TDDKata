@@ -25,6 +25,11 @@ namespace TDDKata
                     return _scoreStringMapping[_serviceScore] + " " + _scoreStringMapping[_receiverScore];
                 }
             }
+
+            if (_serviceScore >= 3)
+            {
+                return "Deuce";
+            }
             return _scoreStringMapping[_serviceScore] + " All";
         }
 
