@@ -94,6 +94,16 @@ namespace TDDKataTest
             CurrentScoreShouldBe("Deuce");
         }
 
+        [Test]
+        public void ServicePlayerAdv()
+        {
+            GivenServiceScore(3);
+            GivenReceiverScore(3);
+            GivenServiceScore(1);
+            _actual = _tennisGame.CurrentScore();
+            CurrentScoreShouldBe("Service Adv");
+        }
+
 
 
         private void GivenReceiverScore(int times)

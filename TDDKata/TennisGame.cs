@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TDDKata
 {
@@ -20,6 +21,13 @@ namespace TDDKata
         {
             if (_serviceScore != _receiverScore)
             {
+                if (_serviceScore >=3  )
+                {
+                    if ((_serviceScore - _receiverScore) == 1)
+                    {
+                        return "Service Adv";
+                    }
+                }
                 if (_serviceScore > 0 || _receiverScore > 0)
                 {
                     return _scoreStringMapping[_serviceScore] + " " + _scoreStringMapping[_receiverScore];
@@ -30,6 +38,11 @@ namespace TDDKata
             {
                 return "Deuce";
             }
+            return SameScore();
+        }
+
+        private string SameScore()
+        {
             return _scoreStringMapping[_serviceScore] + " All";
         }
 
