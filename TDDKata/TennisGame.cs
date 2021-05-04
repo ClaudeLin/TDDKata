@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TDDKata
 {
@@ -20,6 +21,13 @@ namespace TDDKata
         {
             if (IsScoreDifferent())
             {
+                if (_servicePlayerScore>=3 && _receiverPlayerScore>=3 &&Math.Abs(_servicePlayerScore - _receiverPlayerScore) == 1)
+                {
+                    if (_servicePlayerScore > _receiverPlayerScore)
+                    {
+                        return "Service Adv";
+                    }
+                }
                 return _scoreNameMapping[_servicePlayerScore] + " " + _scoreNameMapping[_receiverPlayerScore];
             }
 
