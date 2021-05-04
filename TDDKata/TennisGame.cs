@@ -16,6 +16,12 @@ namespace TDDKata
         };
 
         private int _receiverPlayerScore;
+        private readonly string _advPlayer;
+
+        public TennisGame(string advPlayer)
+        {
+            _advPlayer = advPlayer;
+        }
 
         public string CurrentScore()
         {
@@ -25,7 +31,7 @@ namespace TDDKata
                 {
                     if (_servicePlayerScore > _receiverPlayerScore)
                     {
-                        return "Service Adv";
+                        return _advPlayer+" Adv";
                     }
                 }
                 return _scoreNameMapping[_servicePlayerScore] + " " + _scoreNameMapping[_receiverPlayerScore];

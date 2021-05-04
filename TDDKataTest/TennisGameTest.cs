@@ -10,7 +10,7 @@ namespace TDDKataTest
         [SetUp]
         public void SetUp()
         {
-            _tennisGame = new TennisGame();
+            _tennisGame = new TennisGame("Service");
         }
 
         [Test]
@@ -92,6 +92,7 @@ namespace TDDKataTest
             GivenServicePlayerPoint(1);
             CurrentScoreShouldBe("Service Adv");
         }
+
         private void GivenDeuce()
         {
             GivenServicePlayerPoint(3);
