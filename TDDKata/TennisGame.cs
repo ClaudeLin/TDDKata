@@ -14,11 +14,13 @@ namespace TDDKata
             {3, "Forty"}
         };
 
+        private int _receiverPlayerScore;
+
         public string CurrentScore()
         {
-            if (_servicePlayerScore > 0)
+            if (_servicePlayerScore > 0 || _receiverPlayerScore > 0)
             {
-                return scoreNameMapping[_servicePlayerScore] + " Love";
+                return scoreNameMapping[_servicePlayerScore] + " " + scoreNameMapping[_receiverPlayerScore];
             }
 
             return "Love All";
@@ -27,6 +29,11 @@ namespace TDDKata
         public void ServicePlayerGetPoint()
         {
             _servicePlayerScore++;
+        }
+
+        public void ReceiverPlayerGetPoint()
+        {
+            _receiverPlayerScore++;
         }
     }
 }
