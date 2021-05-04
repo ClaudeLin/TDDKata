@@ -29,9 +29,23 @@ namespace TDDKataTest
         [Test]
         public void Thirty_Love()
         {
-            _tennisGame.ServicePlayerGetPoint();
-            _tennisGame.ServicePlayerGetPoint();
+            GivenServicePlayerPoint(2);
             CurrentScoreShouldBe("Thirty Love");
+        }
+
+        [Test]
+        public void Forty_Love()
+        {
+            GivenServicePlayerPoint(3);
+            CurrentScoreShouldBe("Forty Love");
+        }
+
+        private void GivenServicePlayerPoint(int times)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                _tennisGame.ServicePlayerGetPoint();
+            }
         }
 
         private void CurrentScoreShouldBe(string expected)
