@@ -23,7 +23,22 @@ namespace TDDKata
                 return _scoreNameMapping[_servicePlayerScore] + " " + _scoreNameMapping[_receiverPlayerScore];
             }
 
+            if (IsDeuce())
+            {
+                return Deuce();
+            }
+
             return SameScore();
+        }
+
+        private bool IsDeuce()
+        {
+            return _servicePlayerScore == 3;
+        }
+
+        private  string Deuce()
+        {
+            return "Deuce";
         }
 
         private bool IsScoreDifferent()
