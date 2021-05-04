@@ -16,11 +16,13 @@ namespace TDDKata
         };
 
         private int _receiverPlayerScore;
-        private readonly string _advPlayer;
+        private readonly string _servicePlayer;
+        private readonly string _receiverPlayer;
 
-        public TennisGame(string advPlayer)
+        public TennisGame(string servicePlayer, string receiverPlayer)
         {
-            _advPlayer = advPlayer;
+            _servicePlayer = servicePlayer;
+            _receiverPlayer = receiverPlayer;
         }
 
         public string CurrentScore()
@@ -29,10 +31,7 @@ namespace TDDKata
             {
                 if (_servicePlayerScore>=3 && _receiverPlayerScore>=3 &&Math.Abs(_servicePlayerScore - _receiverPlayerScore) == 1)
                 {
-                    if (_servicePlayerScore > _receiverPlayerScore)
-                    {
-                        return _advPlayer+" Adv";
-                    }
+                    return AdvPlayer();
                 }
                 return _scoreNameMapping[_servicePlayerScore] + " " + _scoreNameMapping[_receiverPlayerScore];
             }
@@ -43,6 +42,26 @@ namespace TDDKata
             }
 
             return SameScore();
+        }
+
+        private string AdvPlayer()
+        {
+            return AdvPlayerName(IsServicePlayerHasAdv() ? _servicePlayer : _receiverPlayer);
+        }
+
+        private bool IsReceiverPlayerHasAdv()
+        {
+            return _receiverPlayerScore > _servicePlayerScore;
+        }
+
+        private string AdvPlayerName(string advPlayer)
+        {
+            return advPlayer + " Adv";
+        }
+
+        private bool IsServicePlayerHasAdv()
+        {
+            return _servicePlayerScore > _receiverPlayerScore;
         }
 
         private bool IsDeuce()
