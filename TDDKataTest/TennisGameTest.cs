@@ -69,6 +69,14 @@ namespace TDDKataTest
             CurrentScoreShouldBe("Fifteen All");
         }
 
+        [Test]
+        public void Thirty_All()
+        {
+            GivenServicePlayerPoint(2);
+            GivenReceiverPlayerPoint(2);
+            CurrentScoreShouldBe("Thirty All");
+        }
+
         private void GivenReceiverPlayerPoint(int times)
         {
             for (int i = 0; i < times; i++)
