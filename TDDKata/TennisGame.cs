@@ -6,7 +6,7 @@ namespace TDDKata
     {
         private int _servicePlayerScore;
 
-        private Dictionary<int, string> scoreNameMapping = new Dictionary<int, string>()
+        private readonly Dictionary<int, string> _scoreNameMapping = new()
         {
             {0, "Love"},
             {1, "Fifteen"},
@@ -18,12 +18,22 @@ namespace TDDKata
 
         public string CurrentScore()
         {
-            if (_servicePlayerScore > 0 || _receiverPlayerScore > 0)
+            if (IsScoreDifferent())
             {
-                return scoreNameMapping[_servicePlayerScore] + " " + scoreNameMapping[_receiverPlayerScore];
+                return _scoreNameMapping[_servicePlayerScore] + " " + _scoreNameMapping[_receiverPlayerScore];
             }
 
-            return "Love All";
+            return SameScore();
+        }
+
+        private bool IsScoreDifferent()
+        {
+            return _servicePlayerScore != _receiverPlayerScore;
+        }
+
+        private string SameScore()
+        {
+            return _scoreNameMapping[_servicePlayerScore] + " All";
         }
 
         public void ServicePlayerGetPoint()

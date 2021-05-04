@@ -60,7 +60,14 @@ namespace TDDKataTest
             GivenReceiverPlayerPoint(3);
             CurrentScoreShouldBe("Love Forty");
         }
-        
+
+        [Test]
+        public void Fifteen_All()
+        {
+            GivenReceiverPlayerPoint(1);
+            GivenServicePlayerPoint(1);
+            CurrentScoreShouldBe("Fifteen All");
+        }
 
         private void GivenReceiverPlayerPoint(int times)
         {
