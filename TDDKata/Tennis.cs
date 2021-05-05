@@ -30,18 +30,25 @@ namespace TDDKata
         {
             if (IsScoreDifferent())
             {
-                if (_servicePlayerPoint > 3 || _receiverPlayerPoint > 3)
+                if (IsNearGamePoint())
                 {
                     if (IsAdvStatus())
                     {
                         return AdvPlayerScore();
                     }
+
+                    return _receiverPlayerName + " Win";
                 }
 
                 return _scoreMapping[_servicePlayerPoint] + " " + _scoreMapping[_receiverPlayerPoint];
             }
 
             return HandleSameScore();
+        }
+
+        private bool IsNearGamePoint()
+        {
+            return _servicePlayerPoint > 3 || _receiverPlayerPoint > 3;
         }
 
         private bool IsAdvStatus()
