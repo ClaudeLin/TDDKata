@@ -6,32 +6,57 @@ namespace TDDKata
     public class Tennis
     {
         private int _servicePlayerPoint;
-        private readonly Dictionary<int,string> _scoreMapping=new()
+
+        private readonly Dictionary<int, string> _scoreMapping = new()
         {
-            {0,"Love"},
-            {1,"Fifteen"},
-            {2,"Thirty"},
-            {3,"Forty"}
+            {0, "Love"},
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"}
         };
 
         private int _receiverPlayerPoint;
-        private const string ServicePlayerName = "Service";
+        private readonly string _receiverPlayerName;
+
+        public Tennis(string servicePlayerName, string receiverPlayerName)
+        {
+            _receiverPlayerName = receiverPlayerName;
+            _servicePlayerName = servicePlayerName;
+        }
+
+        private readonly string _servicePlayerName;
 
         public string GetCurrentScore()
         {
             if (IsScoreDifferent())
             {
-                if (_servicePlayerPoint > 3)
+                if (_servicePlayerPoint > 3 || _receiverPlayerPoint > 3)
                 {
-                    if (Math.Abs(_servicePlayerPoint - _receiverPlayerPoint) == 1)
+                    if (IsAdvStatus())
                     {
-                        return ServicePlayerName+" Adv";
+                        return AdvPlayerScore();
                     }
                 }
-                return _scoreMapping[_servicePlayerPoint]+ " " + _scoreMapping[_receiverPlayerPoint];
+
+                return _scoreMapping[_servicePlayerPoint] + " " + _scoreMapping[_receiverPlayerPoint];
             }
 
             return HandleSameScore();
+        }
+
+        private bool IsAdvStatus()
+        {
+            return Math.Abs(_servicePlayerPoint - _receiverPlayerPoint) == 1;
+        }
+
+        private string AdvPlayerScore()
+        {
+            return (IsServicePlayerAdv() ? _servicePlayerName : _receiverPlayerName)+ " Adv";
+        }
+
+        private bool IsServicePlayerAdv()
+        {
+            return _servicePlayerPoint > _receiverPlayerPoint;
         }
 
         private string HandleSameScore()
