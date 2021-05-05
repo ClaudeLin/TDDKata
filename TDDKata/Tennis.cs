@@ -17,12 +17,17 @@ namespace TDDKata
 
         public string GetCurrentScore()
         {
-            if (_receiverPlayerPoint > 0 || _servicePlayerPoint>0)
+            if (IsScoreDifferent())
             {
                 return _scoreMapping[_servicePlayerPoint]+ " " + _scoreMapping[_receiverPlayerPoint];
             }
 
-            return "Love All";
+            return _scoreMapping[_servicePlayerPoint] +" All";
+        }
+
+        private bool IsScoreDifferent()
+        {
+            return _receiverPlayerPoint != _servicePlayerPoint;
         }
 
         public void ServicePlayerGetPoint()
