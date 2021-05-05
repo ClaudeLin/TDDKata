@@ -12,6 +12,7 @@ namespace TDDKataTest
         {
             _tennis = new Tennis();
         }
+
         [Test]
         public void Love_All()
         {
@@ -21,8 +22,23 @@ namespace TDDKataTest
         [Test]
         public void Fifteen_Love()
         {
-            _tennis.ServicePlayerGetPoint();
+            GivenServicePlayerPoint(1);
             CurrentScoreShouldBe("Fifteen Love");
+        }
+
+        [Test]
+        public void Thirty_Love()
+        {
+            GivenServicePlayerPoint(2);
+            CurrentScoreShouldBe("Thirty Love");
+        }
+
+        private void GivenServicePlayerPoint(int times)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                _tennis.ServicePlayerGetPoint();
+            }
         }
 
         private void CurrentScoreShouldBe(string expected)

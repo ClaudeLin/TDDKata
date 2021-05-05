@@ -1,15 +1,24 @@
-﻿namespace TDDKata
+﻿using System.Collections.Generic;
+
+namespace TDDKata
 {
     public class Tennis
     {
         private int _servicePlayerPoint;
+        private Dictionary<int,string> _scoreMapping=new Dictionary<int, string>()
+        {
+            {0,"Love"},
+            {1,"Fifteen"},
+            {2,"Thirty"}
+        };
 
         public string GetCurrentScore()
         {
-            if (_servicePlayerPoint == 1)
+            if (_servicePlayerPoint > 0)
             {
-                return "Fifteen Love";
+                return _scoreMapping[_servicePlayerPoint] + " Love";
             }
+
             return "Love All";
         }
 
