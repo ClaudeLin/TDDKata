@@ -22,7 +22,32 @@ namespace TDDKata
                 return _scoreMapping[_servicePlayerPoint]+ " " + _scoreMapping[_receiverPlayerPoint];
             }
 
-            return _scoreMapping[_servicePlayerPoint] +" All";
+            return HandleSameScore();
+        }
+
+        private string HandleSameScore()
+        {
+            if (IsDeuce())
+            {
+                return Deuce();
+            }
+
+            return SameScore();
+        }
+
+        private string Deuce()
+        {
+            return "Deuce";
+        }
+
+        private string SameScore()
+        {
+            return _scoreMapping[_servicePlayerPoint] + " All";
+        }
+
+        private bool IsDeuce()
+        {
+            return _servicePlayerPoint >= 3;
         }
 
         private bool IsScoreDifferent()
