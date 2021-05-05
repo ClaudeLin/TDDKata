@@ -47,6 +47,13 @@ namespace TDDKataTest
             CurrentScoreShouldBe("Love Fifteen");
         }
 
+        [Test]
+        public void Love_Thirty()
+        {
+            GivenReceiverPlayerPoint(2);
+            CurrentScoreShouldBe("Love Thirty");
+        }
+
         private void GivenReceiverPlayerPoint(int times)
         {
             for (var i = 0; i < times; i++)
