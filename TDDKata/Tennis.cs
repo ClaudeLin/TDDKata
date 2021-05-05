@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TDDKata
 {
@@ -14,11 +15,19 @@ namespace TDDKata
         };
 
         private int _receiverPlayerPoint;
+        private const string ServicePlayerName = "Service";
 
         public string GetCurrentScore()
         {
             if (IsScoreDifferent())
             {
+                if (_servicePlayerPoint > 3)
+                {
+                    if (Math.Abs(_servicePlayerPoint - _receiverPlayerPoint) == 1)
+                    {
+                        return ServicePlayerName+" Adv";
+                    }
+                }
                 return _scoreMapping[_servicePlayerPoint]+ " " + _scoreMapping[_receiverPlayerPoint];
             }
 

@@ -84,6 +84,14 @@ namespace TDDKataTest
             CurrentScoreShouldBe("Deuce");
         }
 
+        [Test]
+        public void Service_Adv()
+        {
+            GivenDeuce();
+            GivenServicePlayerPoint(1);
+            CurrentScoreShouldBe("Service Adv");
+        }
+
         private void GivenDeuce()
         {
             GivenServicePlayerPoint(3);
