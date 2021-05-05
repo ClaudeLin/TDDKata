@@ -6,6 +6,7 @@ namespace TDDKata
     public class Tennis
     {
         private int _servicePlayerPoint;
+        private int _receiverPlayerPoint;
 
         private readonly Dictionary<int, string> _scoreMapping = new()
         {
@@ -15,8 +16,9 @@ namespace TDDKata
             {3, "Forty"}
         };
 
-        private int _receiverPlayerPoint;
+        private readonly string _servicePlayerName;
         private readonly string _receiverPlayerName;
+        private string _advPlayerName;
 
         public Tennis(string servicePlayerName, string receiverPlayerName)
         {
@@ -24,7 +26,6 @@ namespace TDDKata
             _servicePlayerName = servicePlayerName;
         }
 
-        private readonly string _servicePlayerName;
 
         public string GetCurrentScore()
         {
@@ -32,12 +33,14 @@ namespace TDDKata
             {
                 if (IsNearGamePoint())
                 {
+                    SetAdvPlayerName();
+
                     if (IsAdvStatus())
                     {
                         return AdvPlayerScore();
                     }
 
-                    return _receiverPlayerName + " Win";
+                    return _advPlayerName + " Win";
                 }
 
                 return _scoreMapping[_servicePlayerPoint] + " " + _scoreMapping[_receiverPlayerPoint];
@@ -58,7 +61,12 @@ namespace TDDKata
 
         private string AdvPlayerScore()
         {
-            return (IsServicePlayerAdv() ? _servicePlayerName : _receiverPlayerName)+ " Adv";
+            return _advPlayerName + " Adv";
+        }
+
+        private void SetAdvPlayerName()
+        {
+            _advPlayerName = IsServicePlayerAdv() ? _servicePlayerName : _receiverPlayerName;
         }
 
         private bool IsServicePlayerAdv()

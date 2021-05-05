@@ -107,6 +107,13 @@ namespace TDDKataTest
             CurrentScoreShouldBe("Receiver Win");
         }
 
+        [Test]
+        public void Service_Win()
+        {
+            GivenServicePlayerPoint(4);
+            CurrentScoreShouldBe("Service Win");
+        }
+
         private void GivenDeuce()
         {
             GivenServicePlayerPoint(3);
