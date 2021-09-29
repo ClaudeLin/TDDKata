@@ -21,9 +21,9 @@ namespace TDDKata
         {
             if (IsPointDifferent())
             {
-                if (_servicePoint > 3 )
+                if (IsNearGamePoint() )
                 {
-                    if (Math.Abs(_servicePoint - _receiverPoint) == 1)
+                    if (IsAdv())
                     {
                         return "Service Adv";
                     }
@@ -34,6 +34,16 @@ namespace TDDKata
             }
 
             return IsDeuce() ? "Deuce" : $"{_pointSringMapping[_servicePoint]} All";
+        }
+
+        private bool IsNearGamePoint()
+        {
+            return _servicePoint > 3;
+        }
+
+        private bool IsAdv()
+        {
+            return Math.Abs(_servicePoint - _receiverPoint) == 1;
         }
 
         private bool IsDeuce()
