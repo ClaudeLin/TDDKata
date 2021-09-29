@@ -36,8 +36,7 @@ namespace TDDKataTest
         public void Thirty_Love()
         {
             expected = "Thirty Love";
-            tennisGame.ServiceGetPoint();
-            tennisGame.ServiceGetPoint();
+            tennisGame.ServiceGetPoint(2);
             actual = tennisGame.CurrentScore();
             Assert.AreEqual(expected, actual);
         }
