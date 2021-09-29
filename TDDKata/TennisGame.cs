@@ -4,14 +4,15 @@ namespace TDDKata
 {
     public class TennisGame
     {
-        private int _receiverPoint;
-
         private readonly Dictionary<int, string> _scoreMapping = new()
         {
             { 0, "Love" },
             { 1, "Fifteen" },
-            { 2, "Thirty" }
+            { 2, "Thirty" },
+            { 3, "Forty" }
         };
+
+        private int _receiverPoint;
 
         private int _servicePoint;
 
