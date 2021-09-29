@@ -75,8 +75,7 @@ namespace TDDKataTest
         public void Deuce()
         {
             expected = "Deuce";
-            tennisGame.ServiceGetPoint(3);
-            tennisGame.ReceiverGetPoint(3);
+            GivenDeuce();
             actual = tennisGame.CurrentScore();
             Assert.AreEqual(expected, actual);
         }
@@ -107,16 +106,30 @@ namespace TDDKataTest
             actual = tennisGame.CurrentScore();
             Assert.AreEqual(expected, actual);
         }
-
-        [Test]
+[Test]
         public void Service_Adv()
         {
             expected = "Service Adv";
-            tennisGame.ServiceGetPoint(3);
-            tennisGame.ReceiverGetPoint(3);
+            GivenDeuce();
             tennisGame.ServiceGetPoint();
             actual = tennisGame.CurrentScore();
             Assert.AreEqual(expected, actual);
+        }
+        
+        [Test]
+        public void Service_Win()
+        {
+            expected = "Service Win";
+            tennisGame.ServiceGetPoint(4);
+            actual = tennisGame.CurrentScore();
+            Assert.AreEqual(expected, actual);
+        }
+        
+
+        private void GivenDeuce()
+        {
+            tennisGame.ServiceGetPoint(3);
+            tennisGame.ReceiverGetPoint(3);
         }
     }
 }

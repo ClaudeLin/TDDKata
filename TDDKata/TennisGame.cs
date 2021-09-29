@@ -21,9 +21,14 @@ namespace TDDKata
         {
             if (IsPointDifferent())
             {
-                if (_servicePoint > 3 && Math.Abs(_servicePoint-_receiverPoint)==1)
+                if (_servicePoint > 3 )
                 {
-                    return "Service Adv";
+                    if (Math.Abs(_servicePoint - _receiverPoint) == 1)
+                    {
+                        return "Service Adv";
+                    }
+
+                    return "Service Win";
                 }
                 return $"{_pointSringMapping[_servicePoint]} {_pointSringMapping[_receiverPoint]}";
             }
