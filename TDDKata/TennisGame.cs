@@ -18,12 +18,12 @@ namespace TDDKata
 
         public string CurrentScore()
         {
-            if (_servicePoint > 0)
+            if (_servicePoint !=_receiverPoint)
             {
                 return $"{_scoreMapping[_servicePoint]} {_scoreMapping[_receiverPoint]}";
             }
 
-            return $"{_scoreMapping[_servicePoint]} ALl";
+            return $"{_scoreMapping[_servicePoint]} All";
         }
 
         public void ServiceGetPoint(int times = 1)
@@ -32,6 +32,11 @@ namespace TDDKata
             {
                 _servicePoint++;
             }
+        }
+
+        public void ReceiverGetPoint()
+        {
+            _receiverPoint++;
         }
     }
 }
