@@ -4,7 +4,7 @@ namespace TDDKata
 {
     public class TennisGame
     {
-        private readonly Dictionary<int, string> _scoreMapping = new()
+        private readonly Dictionary<int, string> _pointSringMapping = new()
         {
             { 0, "Love" },
             { 1, "Fifteen" },
@@ -18,12 +18,17 @@ namespace TDDKata
 
         public string CurrentScore()
         {
-            if (_servicePoint !=_receiverPoint)
+            if (IsPointDifferent())
             {
-                return $"{_scoreMapping[_servicePoint]} {_scoreMapping[_receiverPoint]}";
+                return $"{_pointSringMapping[_servicePoint]} {_pointSringMapping[_receiverPoint]}";
             }
 
-            return $"{_scoreMapping[_servicePoint]} All";
+            return $"{_pointSringMapping[_servicePoint]} All";
+        }
+
+        private bool IsPointDifferent()
+        {
+            return _servicePoint !=_receiverPoint;
         }
 
         public void ServiceGetPoint(int times = 1)
