@@ -28,7 +28,7 @@ namespace TDDKata
 
         private bool IsPointDifferent()
         {
-            return _servicePoint !=_receiverPoint;
+            return _servicePoint != _receiverPoint;
         }
 
         public void ServiceGetPoint(int times = 1)
@@ -39,9 +39,12 @@ namespace TDDKata
             }
         }
 
-        public void ReceiverGetPoint()
+        public void ReceiverGetPoint(int times = 1)
         {
-            _receiverPoint++;
+            for (var i = 0; i < times; i++)
+            {
+                _receiverPoint++;
+            }
         }
     }
 }

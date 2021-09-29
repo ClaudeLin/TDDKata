@@ -50,8 +50,7 @@ namespace TDDKataTest
             actual = tennisGame.CurrentScore();
             Assert.AreEqual(expected, actual);
         }
-
-        [Test]
+[Test]
         public void Fifteen_All()
         {
             expected = "Fifteen All";
@@ -60,5 +59,16 @@ namespace TDDKataTest
             actual = tennisGame.CurrentScore();
             Assert.AreEqual(expected, actual);
         }
+        
+        [Test]
+        public void Thirty_All()
+        {
+            expected = "Thirty All";
+            tennisGame.ServiceGetPoint(2);
+            tennisGame.ReceiverGetPoint(2);
+            actual = tennisGame.CurrentScore();
+            Assert.AreEqual(expected, actual);
+        }
+        
     }
 }
