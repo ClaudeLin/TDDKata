@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TDDKata
 {
@@ -20,6 +21,10 @@ namespace TDDKata
         {
             if (IsPointDifferent())
             {
+                if (_servicePoint > 3 && Math.Abs(_servicePoint-_receiverPoint)==1)
+                {
+                    return "Service Adv";
+                }
                 return $"{_pointSringMapping[_servicePoint]} {_pointSringMapping[_receiverPoint]}";
             }
 
