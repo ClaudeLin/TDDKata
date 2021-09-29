@@ -10,6 +10,11 @@
             {
                 return "Fifteen Love";
             }
+
+            if (_servicePoint == 2)
+            {
+                return "Thirty Love";
+            }
             return "Love ALl";
         }
 
