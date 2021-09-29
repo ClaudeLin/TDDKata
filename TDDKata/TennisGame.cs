@@ -23,11 +23,12 @@ namespace TDDKata
                 return $"{_pointSringMapping[_servicePoint]} {_pointSringMapping[_receiverPoint]}";
             }
 
-            if (_servicePoint > 2)
-            {
-                return "Deuce";
-            }
-            return $"{_pointSringMapping[_servicePoint]} All";
+            return IsDeuce() ? "Deuce" : $"{_pointSringMapping[_servicePoint]} All";
+        }
+
+        private bool IsDeuce()
+        {
+            return _servicePoint > 2;
         }
 
         private bool IsPointDifferent()
